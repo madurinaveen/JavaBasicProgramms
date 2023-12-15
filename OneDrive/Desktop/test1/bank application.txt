@@ -1,0 +1,93 @@
+package Patterns;
+import java.util.*;
+public class Bank_Application {
+	public static void main(String args[])
+	{
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter Bank Name");
+		String Bank_Name = sc.nextLine();
+		System.out.println("Enter Name");
+		String Name = sc.nextLine();
+		System.out.println("Enter Bank Account number");
+		long ACC_no = sc.nextLong();
+		System.out.println("Enter phone no.");
+		long Mobile_no = sc.nextLong();
+		System.out.println("Enter PIN");
+		int PIN = sc.nextInt();
+		int Balance=50000;
+		boolean bolen = false;
+		while(true)
+		{
+		System.out.println("enter any option");
+		System.out.println("1.SHOW DETAILS");
+		System.out.println("2.BALANCE ENQUIRY");
+		System.out.println("3.WITHDRAW");
+		System.out.println("4.DEPOSIT");
+		System.out.println("5.NAME CHANGE");
+		System.out.println("6.PIN CHANGE");
+		System.out.println("7.MOBILE NO CHANGE");
+		System.out.println("8.Exit");
+		int Enquiry = sc.nextInt();
+		switch(Enquiry)
+		{
+		case 1:
+			System.out.println("Bank Name Is "+Bank_Name);
+			System.out.println("Name is "+Name);
+			System.out.println("Account no is "+ACC_no);
+			System.out.println("Mobile Number is "+Mobile_no);
+			break;
+		case 2:
+			System.out.println("Your Balance is "+Balance);
+			break;
+		case 3:
+			System.out.println("Enter Amount For Withdraw");
+			int Withdraw = sc.nextInt();
+			int Remaining_Amount = Balance-Withdraw;
+			System.out.println("Your Balance is "+Remaining_Amount);
+			Balance=Remaining_Amount;
+			break;
+		case 4:
+			System.out.println("Enter Amount For Deposit");
+			int Deposit = sc.nextInt();
+			int Total_Amount = Balance+Deposit;
+			System.out.println("Your Balance is "+Total_Amount);
+			Balance=Total_Amount;
+			break;
+		case 5:
+			sc.nextLine();
+			System.out.println("Enter New Name");
+			Name = sc.nextLine();
+			System.out.println("Your New Name is "+Name);
+			break;
+		case 6:
+			System.out.println("Enter Old PIN ");
+			int PIN2 = sc.nextInt();
+			if(PIN==PIN2)
+			{
+				System.out.println("Enter New PIN");
+				PIN=sc.nextInt();
+				System.out.println("PIN Changed Successfully");
+			}
+			else
+			{
+				System.out.println("Wrong Pin");
+			}
+			break;
+		case 7:
+			System.out.println("Enter New Mobile No.");
+			Mobile_no = sc.nextLong();
+			System.out.println("Mobile No. Changed Successfully");
+			break;
+		case 8:
+			bolen=true;
+		default:
+			System.out.println("Choose Correct Option");
+			break;
+		}
+		if(bolen==true)
+		{
+			break;
+		}
+	  }
+	}
+}
